@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 # About me
-I am a Ph.D. candidate at the South China University of Technology (SCUT), School of Software Engineering, advised by Prof. [Fei Liu](https://scholar.google.com/citations?user=gC-YMYgAAAAJ) and co-supervised by Prof. [Mingkui Tan](https://tanmingkui.github.io/). I hold a Bachelor’s degree in Software Engineering from the School of Software Engineering, South China University of Technology. My research focuses on video understanding, medical image analysis, and semi-supervised/few-shot learning, with publications in top-tier venues including IJCAI, and journals such as TIP.
+I am a Ph.D. candidate at the South China University of Technology (SCUT), School of Software Engineering, advised by Prof. [Fei Liu (刘飞)](https://scholar.google.com/citations?user=gC-YMYgAAAAJ) and co-supervised by Prof. [Mingkui Tan (谭明奎)](https://tanmingkui.github.io/). I hold a Bachelor’s degree in Software Engineering from the School of Software Engineering, South China University of Technology. My research focuses on video understanding, medical image analysis, and semi-supervised/few-shot learning, with publications in top-tier venues including IJCAI, and journals such as TIP.
 
 
 # 🔥 News
