@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: ""
+title: "Kai Zhou"
 excerpt: ""
 author_profile: true
 redirect_from: 
@@ -26,19 +26,22 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 - *2025.05*: &nbsp;🎉🎉 One paper is accepted by IJCAI 2025.
 
 # 📝 Publications 
-
+<ul>
 <li><code>TIP 2025</code> <a href=""><strong>Zero-shot Skeleton-based Action Recognition with Prototype-guided Feature Alignment</strong></a><br>
 <strong>IEEE Transactions on Image Processing (TIP 2025)</strong><br>
-<u>Kai Zhou<u>, Shuhai Zhang, Zeng You, Jinwu Hu, Mingkui Tan, Fei Liu<br>
-<a href="https://arxiv.org/pdf/2507.00566v1"><strong>PDF</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> </li>
+<strong>Kai Zhou</strong>, Shuhai Zhang, Zeng You, Jinwu Hu, Mingkui Tan, Fei Liu<br>
+<a href="https://arxiv.org/pdf/2507.00566v1"><strong>PDF</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a>
+</li>
 <br>
 
-<li><code>IJCAI 2025</code> <a href=""><strong>Efficient Dynamic Ensembling for Multiple LLM Experts</strong></a><br>
+<li>
+<code>IJCAI 2025</code> <a href=""><strong>Efficient Dynamic Ensembling for Multiple LLM Experts</strong></a><br>
 <strong>International Joint Conferences on Artificial Intelligence (IJCAI 2025)</strong><br>
-Jinwu Hu, Yufeng Wang, Shuhai Zhang, Kai Zhou, Guohao Chen, Yu Hu, Bin Xiao, Mingkui Tan<br>
-<a href="https://arxiv.org/pdf/2412.07448"><strong>PDF</strong></a> / <a href="https://github.com/Fhujinwu/DER"><strong>Code</strong></a> </li>
+Jinwu Hu, Yufeng Wang, Shuhai Zhang, <strong>Kai Zhou</strong>, Guohao Chen, Yu Hu, Bin Xiao, Mingkui Tan<br>
+<a href="https://arxiv.org/pdf/2412.07448"><strong>PDF</strong></a> / <a href="https://github.com/Fhujinwu/DER"><strong>Code</strong></a>
+</li>
 <br>
-
+</ul>
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
