@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Kai Zhou"
+title                    : "Kai Zhou (周凯)"
 description              : "Focusing on video understanding, medical image analysis, and semi-supervised/few-shot learning."
 repository               : "kaai520/kaai520.github.io"
 google_scholar_stats_use_cdn : true
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Kai Zhou"
   avatar           : "images/KaiZhou.jpg"
-  bio              : "SCUT (South China University of Technology)"
+  bio              : "South China University of Technology (SCUT)"
   location         : "Guangzhou, China"
   employer         :
   pubmed           : 
