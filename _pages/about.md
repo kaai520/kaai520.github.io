@@ -22,8 +22,8 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 
 
 # 🔥 News
-- *2025.06*: &nbsp;🎉🎉 One paper is accepted by TIP 2025. 
-- *2025.05*: &nbsp;🎉🎉 One paper is accepted by IJCAI 2025.
+- *2025.06*: &nbsp;🎉🎉 One paper is accepted by TIP 2025! 
+- *2025.05*: &nbsp;🎉🎉 One paper is accepted by IJCAI 2025!
 
 # 📝 Publications 
 <ul>
