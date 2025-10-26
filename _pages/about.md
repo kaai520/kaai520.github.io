@@ -39,7 +39,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 <code>IJCAI 2025</code> <a href="https://arxiv.org/abs/2412.07448"><strong>Efficient Dynamic Ensembling for Multiple LLM Experts</strong></a><br>
 <strong>International Joint Conferences on Artificial Intelligence (IJCAI 2025)</strong><br>
 Jinwu Hu, Yufeng Wang, Shuhai Zhang, <strong>Kai Zhou</strong>, Guohao Chen, Yu Hu, Bin Xiao, Mingkui Tan<br>
-<a href="https://arxiv.org/abs/2412.07448"><strong>arXiv</strong></a> / <a href="https://github.com/Fhujinwu/DER"><strong>Code</strong></a>
+<a href="https://www.ijcai.org/proceedings/2025/900"><strong>Paper</strong></a> / <a href="https://arxiv.org/abs/2412.07448"><strong>arXiv</strong></a> / <a href="https://github.com/Fhujinwu/DER"><strong>Code</strong></a>
 </li>
 <br>
 </ul>
