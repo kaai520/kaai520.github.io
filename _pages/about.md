@@ -18,10 +18,11 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 # About Me
-I am a Ph.D. candidate at the South China University of Technology (SCUT), School of Software Engineering, advised by Prof. [Fei Liu (刘飞)](https://scholar.google.com/citations?user=gC-YMYgAAAAJ) and co-supervised by Prof. [Mingkui Tan (谭明奎)](https://tanmingkui.github.io/). I hold a Bachelor’s degree in Software Engineering from the School of Software Engineering, South China University of Technology. My research focuses on video understanding, medical image analysis, and semi-supervised/few-shot learning, with publications in top-tier venues including IJCAI, and journals such as TIP. I also actively serve as a reviewer for leading conferences (e.g., AAAI).
+I am a Ph.D. candidate at the South China University of Technology (SCUT), School of Software Engineering, advised by Prof. [Fei Liu (刘飞)](https://scholar.google.com/citations?user=gC-YMYgAAAAJ) and co-supervised by Prof. [Mingkui Tan (谭明奎)](https://tanmingkui.github.io/). I hold a Bachelor’s degree in Software Engineering from the School of Software Engineering, South China University of Technology. My research focuses on video understanding, medical image analysis, and semi-supervised/few-shot learning, with publications in top-tier venues including IJCAI and AAAI, and journals such as TIP. I also actively serve as a reviewer for leading conferences (e.g., AAAI).
 
 
 # 🔥 News
+- *2025.11*: &nbsp;🎉🎉 One paper is accepted by AAAI 2026! 
 - *2025.06*: &nbsp;🎉🎉 One paper is accepted by TIP 2025! 
 - *2025.05*: &nbsp;🎉🎉 One paper is accepted by IJCAI 2025!
 
@@ -34,6 +35,13 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 <a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a>
 </li>
 <br>
+<li><code>AAAI 2026</code> <a href=""><strong>Action-and-object Aware Alignment for Partially Relevant Video Retrieval</strong></a><br>
+<strong>Association for the Advancement of Artificial Intelligence (AAAI 2026)</strong><br>
+Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng You, Yirui Li, Tianhang Xiang, Mingkui Tan<br>
+<a href="https://github.com/chuanshen-chen/A3PRVR"><strong>Code</strong></a>
+</li>
+<br>
+
 
 <li>
 <code>IJCAI 2025</code> <a href="https://arxiv.org/abs/2412.07448"><strong>Efficient Dynamic Ensembling for Multiple LLM Experts</strong></a><br>
