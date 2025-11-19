@@ -53,7 +53,7 @@ Jinwu Hu, Yufeng Wang, Shuhai Zhang, <strong>Kai Zhou</strong>, Guohao Chen, Yu 
 </ul>
 
 # 🎖 Honors and Awards
-- *2025.11* AAAI-2026 Student Scholarship & Volunteer Award 
+- AAAI-2026 Student Scholarship & Volunteer Award 
 
 # 📖 Educations
 - *2020.09 - now*, PhD, South China University of Technology, Guangzhou.
