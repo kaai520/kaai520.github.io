@@ -72,6 +72,22 @@ Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng Y
 </li>
 <br>
 
+<li><code>ICME 2026</code> <a href=""><strong>
+MAF-Det: Motion-Aware Forgery Cue Perception for AI-Generated Video Detection</strong></a><br>
+<strong>IEEE International Conference on Multimedia & Expo (ICME 2026)</strong><br>
+Daiyuan Li, Shuhai Zhang, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Zitong Yu, Mingkui Tan<br>
+<!-- <a href="https://doi.org/10.1109/TIP.2025.3586487"><strong>Paper</strong></a> /
+<a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> -->
+</li>
+<br>
+
+<li><code>CVPR 2026 Findings</code> <a href=""><strong>CaptAin: Caption-driven Alignment for Bridging Modality Gaps in Partially Relevant Video Retrieval</strong></a><br>
+<strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings Track (CVPR 2026 Findings)</strong><br>
+Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Feiqi Wang, Yutao Ning, Zhendong Xiong, Yirui Li, Zhiquan Wen, Mingkui Tan<br>
+<!-- <a href="https://github.com/SHWplus/OA-VAT"><strong>Code</strong></a> -->
+</li>
+<br>
+
 <li>
 <code>PR 2026</code> <a href="https://www.sciencedirect.com/science/article/pii/S0031320325015869"><strong>FocalGaussian: Improving text-driven 3D human generation with body part focus</strong></a><br>
 <strong>Pattern Recognition (PR 2026)</strong><br>
