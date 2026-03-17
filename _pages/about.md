@@ -89,9 +89,9 @@ Jinwu Hu, Yufeng Wang, Shuhai Zhang, <strong>Kai Zhou</strong>, Guohao Chen, Yu 
 </li>
 <br>
 </ul>
-<!-- # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+
+# 🎖 Honors and Awards
+- AAAI-2026 Student Scholarship & Volunteer Award 
 
 # 📖 Educations
 - *2020.09 - now*, PhD, South China University of Technology, Guangzhou.
