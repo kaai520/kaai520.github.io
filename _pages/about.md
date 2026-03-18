@@ -65,9 +65,10 @@ Haowei Sun, <strong>Kai Zhou (co-first author)</strong>, Hao Gao, Jinwu Hu, Xuta
 </li>
 <br>
 
-<li><code>AAAI 2026</code> <a href=""><strong>Action-and-object Aware Alignment for Partially Relevant Video Retrieval</strong></a><br>
+<li><code>AAAI 2026</code> <a href="https://doi.org/10.1609/aaai.v40i4.37271"><strong>Action-and-object Aware Alignment for Partially Relevant Video Retrieval</strong></a><br>
 <strong>Association for the Advancement of Artificial Intelligence (AAAI 2026)</strong><br>
 Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng You, Yirui Li, Tianhang Xiang, Mingkui Tan<br>
+<a href="https://doi.org/10.1609/aaai.v40i4.37271"><strong>Paper</strong></a> /
 <a href="https://github.com/chuanshen-chen/A3PRVR"><strong>Code</strong></a>
 </li>
 <br>
