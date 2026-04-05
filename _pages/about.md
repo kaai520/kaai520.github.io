@@ -76,7 +76,7 @@ Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng Y
 <li><code>ICME 2026</code> <a href=""><strong>
 MAF-Det: Motion-Aware Forgery Cue Perception for AI-Generated Video Detection</strong></a><br>
 <strong>IEEE International Conference on Multimedia & Expo (ICME 2026)</strong><br>
-Daiyuan Li, Shuhai Zhang, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Zitong Yu, Mingkui Tan<br>
+Daiyuan Li, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Shuhai Zhang, Zitong Yu, Mingkui Tan<br>
 <!-- <a href="https://doi.org/10.1109/TIP.2025.3586487"><strong>Paper</strong></a> /
 <a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> -->
 </li>
