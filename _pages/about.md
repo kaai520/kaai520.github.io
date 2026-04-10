@@ -94,7 +94,7 @@ Kaiwen Zheng, <strong>Kai Zhou (co-first author)</strong>, Te Gu, Mingkai Peng, 
 <li><code>CVPR 2026 Findings</code> <a href=""><strong>CaptAin: Caption-driven Alignment for Bridging Modality Gaps in Partially Relevant Video Retrieval</strong></a><br>
 <strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings Track (CVPR 2026 Findings)</strong><br>
 Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Feiqi Wang, Yutao Ning, Zhendong Xiong, Yirui Li, Zhiquan Wen, Mingkui Tan<br>
-<!-- <a href="https://github.com/SHWplus/OA-VAT"><strong>Code</strong></a> -->
+<a href="https://github.com/sYYmmEtra/CaptAin-PRVR"><strong>Code</strong></a>
 </li>
 <br>
 
