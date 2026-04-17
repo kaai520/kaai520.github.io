@@ -22,7 +22,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 
 
 # 🔥 News
-- *2026.03*: &nbsp;🎉🎉 One paper is accepted by ACL Findings 2026!
+- *2026.04*: &nbsp;🎉🎉 One paper is accepted by ACL Findings 2026!
 - *2026.03*: &nbsp;🎉🎉 Three papers are accepted by ICME 2026!
 - *2026.02*: &nbsp;🎉🎉 One paper is accepted by CVPR 2026, and another by CVPR 2026 Findings!
 - *2026.01*: &nbsp;🎉🎉 One paper is accepted by PR 2026! 
@@ -86,7 +86,8 @@ Daiyuan Li, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Shuhai Zhan
 <li><code>ACL 2026 Findings</code> <a href=""><strong>Training-Free Test-Time Contrastive Learning for Large Language Models</strong></a><br>
 <strong>Findings of the Association for Computational Linguistics</strong><br>
 Kaiwen Zheng, <strong>Kai Zhou (co-first author)</strong>, Te Gu, Mingkai Peng, Fei Liu<br>
-<!-- <a href="https://github.com/SHWplus/OA-VAT"><strong>Code</strong></a> -->
+<a href="https://arxiv.org/abs/2604.13552"><strong>arXiv</strong></a> /
+<a href="https://github.com/KevinSCUTer/TF-TTCL"><strong>Code</strong></a>
 </li>
 <br>
 
