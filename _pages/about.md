@@ -22,7 +22,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 
 
 # 🔥 News
-- *2026.04*: &nbsp;🎉🎉 One paper is accepted by ACL Findings 2026!
+- *2026.04*: &nbsp;🎉🎉 One paper is accepted by ACL 2026 Findings!
 - *2026.03*: &nbsp;🎉🎉 Three papers are accepted by ICME 2026!
 - *2026.02*: &nbsp;🎉🎉 One paper is accepted by CVPR 2026, and another by CVPR 2026 Findings!
 - *2026.01*: &nbsp;🎉🎉 One paper is accepted by PR 2026! 
@@ -62,6 +62,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 <li><code>CVPR 2026</code> <a href=""><strong>Instance-level Visual Active Tracking with Occlusion-Aware Planning</strong></a><br>
 <strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026)</strong><br>
 Haowei Sun, <strong>Kai Zhou (co-first author)</strong>, Hao Gao, Jinwu Hu, Xutao Wen, Qixiang Ye, Mingkui Tan<br>
+<a href="https://arxiv.org/abs/2604.21453"><strong>arXiv</strong></a> /
 <a href="https://github.com/SHWplus/OA-VAT"><strong>Code</strong></a>
 </li>
 <br>
@@ -71,15 +72,6 @@ Haowei Sun, <strong>Kai Zhou (co-first author)</strong>, Hao Gao, Jinwu Hu, Xuta
 Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng You, Yirui Li, Tianhang Xiang, Mingkui Tan<br>
 <a href="https://doi.org/10.1609/aaai.v40i4.37271"><strong>Paper</strong></a> /
 <a href="https://github.com/chuanshen-chen/A3PRVR"><strong>Code</strong></a>
-</li>
-<br>
-
-<li><code>ICME 2026</code> <a href=""><strong>
-MAF-Det: Motion-Aware Forgery Cue Perception for AI-Generated Video Detection</strong></a><br>
-<strong>IEEE International Conference on Multimedia & Expo (ICME 2026)</strong><br>
-Daiyuan Li, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Shuhai Zhang, Zitong Yu, Mingkui Tan<br>
-<!-- <a href="https://doi.org/10.1109/TIP.2025.3586487"><strong>Paper</strong></a> /
-<a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> -->
 </li>
 <br>
 
@@ -98,6 +90,17 @@ Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Feiqi Wang, Yutao N
 <a href="https://github.com/sYYmmEtra/CaptAin-PRVR"><strong>Code</strong></a>
 </li>
 <br>
+
+<li><code>ICME 2026</code> <a href=""><strong>
+MAF-Det: Motion-Aware Forgery Cue Perception for AI-Generated Video Detection</strong></a><br>
+<strong>IEEE International Conference on Multimedia & Expo (ICME 2026)</strong><br>
+Daiyuan Li, <strong>Kai Zhou (co-first author)</strong>, Yifan Yang, Shuhai Zhang, Zitong Yu, Mingkui Tan<br>
+<!-- <a href="https://doi.org/10.1109/TIP.2025.3586487"><strong>Paper</strong></a> /
+<a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> -->
+</li>
+<br>
+
+
 
 <li>
 <code>PR 2026</code> <a href="https://www.sciencedirect.com/science/article/pii/S0031320325015869"><strong>FocalGaussian: Improving text-driven 3D human generation with body part focus</strong></a><br>
