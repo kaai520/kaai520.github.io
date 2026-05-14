@@ -77,7 +77,7 @@ Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Zhiquan Wen, Zeng Y
 
 <li><code>ACL 2026 Findings</code> <a href=""><strong>Training-Free Test-Time Contrastive Learning for Large Language Models</strong></a><br>
 <strong>Findings of the Association for Computational Linguistics</strong><br>
-Kaiwen Zheng, <strong>Kai Zhou (co-first author)</strong>, Te Gu, Mingkai Peng, Fei Liu<br>
+Kaiwen Zheng, <strong>Kai Zhou (co-first author)</strong>, Jinwu Hu, Te Gu, Mingkai Peng, Fei Liu<br>
 <a href="https://arxiv.org/abs/2604.13552"><strong>arXiv</strong></a> /
 <a href="https://github.com/KevinSCUTer/TF-TTCL"><strong>Code</strong></a>
 </li>
