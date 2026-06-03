@@ -22,6 +22,8 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 
 
 # 🔥 News
+- *2026.06*: &nbsp;🎉🎉 One paper is selected as ICME 2026 Oral!
+- *2026.05*: &nbsp;🎉🎉 One paper is accepted by Scientific Data!
 - *2026.04*: &nbsp;🎉🎉 One paper is accepted by ACL 2026 Findings!
 - *2026.03*: &nbsp;🎉🎉 Three papers are accepted by ICME 2026!
 - *2026.02*: &nbsp;🎉🎉 One paper is accepted by CVPR 2026, and another by CVPR 2026 Findings!
@@ -42,7 +44,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 <br>
 
 <li><code>ICME 2026</code> <a href=""><strong>Structure-aware Keypoint Localization for Videofluoroscopic Swallowing Study</strong></a><br>
-<strong>IEEE International Conference on Multimedia & Expo (ICME 2026)</strong><br>
+<strong>IEEE International Conference on Multimedia & Expo (ICME 2026 Oral)</strong><br>
 <strong>Kai Zhou</strong>, Chuanshen Chen, Runhao Zeng, Meng Dai, Yifan Yang, Jinwu Hu, Daiyuan Li, Mingkui Tan, Fei Liu<br>
 <!-- <a href="https://doi.org/10.1109/TIP.2025.3586487"><strong>Paper</strong></a> /
 <a href="https://arxiv.org/abs/2507.00566"><strong>arXiv</strong></a> / <a href="https://github.com/kaai520/PGFA"><strong>Code</strong></a> -->
@@ -62,6 +64,7 @@ I am a Ph.D. candidate at the South China University of Technology (SCUT), Schoo
 <li><code>CVPR 2026</code> <a href=""><strong>Instance-level Visual Active Tracking with Occlusion-Aware Planning</strong></a><br>
 <strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026)</strong><br>
 Haowei Sun, <strong>Kai Zhou (co-first author)</strong>, Hao Gao, Jinwu Hu, Xutao Wen, Qixiang Ye, Mingkui Tan<br>
+<a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Sun_Instance-level_Visual_Active_Tracking_with_Occlusion-Aware_Planning_CVPR_2026_paper.pdf"><strong>Paper</strong></a> /
 <a href="https://arxiv.org/abs/2604.21453"><strong>arXiv</strong></a> /
 <a href="https://github.com/SHWplus/OA-VAT"><strong>Code</strong></a>
 </li>
@@ -87,6 +90,7 @@ Kaiwen Zheng, <strong>Kai Zhou (co-first author)</strong>, Jinwu Hu, Te Gu, Ming
 <li><code>CVPR 2026 Findings</code> <a href=""><strong>CaptAin: Caption-driven Alignment for Bridging Modality Gaps in Partially Relevant Video Retrieval</strong></a><br>
 <strong>IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings Track (CVPR 2026 Findings)</strong><br>
 Chuanshen Chen, <strong>Kai Zhou (co-first author)</strong>, Feiqi Wang, Yutao Ning, Zhendong Xiong, Yirui Li, Zhiquan Wen, Mingkui Tan<br>
+<a href="https://openaccess.thecvf.com/content/CVPR2026F/papers/Chen_CaptAin_Caption-driven_Alignment_for_Bridging_Modality_Gaps_in_Partially_Relevant_CVPRF_2026_paper.pdf"><strong>Paper</strong></a> /
 <a href="https://github.com/sYYmmEtra/CaptAin-PRVR"><strong>Code</strong></a>
 </li>
 <br>
