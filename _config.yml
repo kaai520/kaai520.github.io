@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Kai Zhou's Home Page"
-description              : "Focusing on video understanding, medical image analysis, and semi-supervised/few-shot learning."
+description              : "Focusing on video understanding, vision-language models, and semi-supervised/few-shot learning."
 repository               : "kaai520/kaai520.github.io"
 google_scholar_stats_use_cdn : true
 
