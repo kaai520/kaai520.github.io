@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重点整理-19班 · 专属刷题神器</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background-color: #f0f4f8; color: #2d3748; margin: 0; padding: 20px 10px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .header-card { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 20px 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .header-title { font-size: 22px; font-weight: bold; margin: 0 0 15px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:8px; }
+        .header-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+        .btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn { padding: 8px 16px; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+        .btn-light { background: rgba(255,255,255,0.2); color: white; }
+        .btn-light:hover, .btn-light.active { background: rgba(255,255,255,0.95); color: #1e3c72; font-weight: bold; }
+        .btn-warning { background: #dd6b20; color: white; }
+        .select-filter { padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.15); color: white; font-size: 14px; outline: none; max-width: 250px; }
+        .select-filter option { background: #1e3c72; color: white; }
+        .filter-row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px; min-height: 380px; display: flex; flex-direction: column; justify-content: space-between; }
+        .q-meta { font-size: 13px; color: #718096; margin-bottom: 10px; display: flex; justify-content: space-between; gap:10px; flex-wrap:wrap; }
+        .q-tag { background: #edf2f7; padding: 3px 8px; border-radius: 4px; color: #4a5568; font-weight: 500; }
+        .q-title { font-size: 18px; font-weight: bold; line-height: 1.6; margin-bottom: 20px; color: #1a202c; }
+        .options-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .option-item { padding: 14px 18px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 15px; line-height: 1.5; display: flex; align-items: flex-start; position: relative; }
+        .option-item:hover { background: #edf2f7; border-color: #cbd5e0; }
+        .option-item.selected { background: #ebf8ff; border-color: #3182ce; color: #2b6cb0; font-weight: bold; }
+        .option-item.correct { background: #f0fff4 !important; border-color: #38a169 !important; color: #276749 !important; font-weight: bold; }
+        .option-item.wrong { background: #fff5f5 !important; border-color: #e53e3e !important; color: #c53030 !important; }
+        .result-box { margin-top: 15px; padding: 15px 18px; border-radius: 8px; font-size: 15px; line-height: 1.6; display: none; }
+        .result-box.success { background: #f0fff4; border-left: 5px solid #38a169; color: #276749; }
+        .result-box.error { background: #fff5f5; border-left: 5px solid #e53e3e; color: #c53030; }
+        .action-bar { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 20px; border-top: 1px solid #edf2f7; }
+        .nav-btn { padding: 10px 22px; border: none; background: #e2e8f0; color: #4a5568; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: bold; transition: all 0.2s; }
+        .nav-btn:hover { background: #cbd5e0; }
+        .nav-btn-primary { background: #3182ce; color: white; }
+        .nav-btn-primary:hover { background: #2b6cb0; }
+        .submit-btn { background: #38a169; color: white; padding: 10px 24px; border: none; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+        .status-badge { font-weight: bold; font-size: 15px; color: #4a5568; }
+        .footer-note { text-align:center; color:#a0aec0; font-size:12px; margin-top:10px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header-card">
+        <div class="header-title">
+            <span id="header-mode-text">📚 全部题目练习</span>
+            <span id="wrong-count-badge" style="font-size:15px; background:rgba(255,255,255,0.25); padding:4px 10px; border-radius:15px;">错题本: 0</span>
+        </div>
+        <div class="header-controls">
+            <div class="btn-group">
+                <button class="btn btn-light active" onclick="switchMode('all')" id="btn-mode-all">全部题库</button>
+                <button class="btn btn-light" onclick="switchMode('wrong')" id="btn-mode-wrong">🔴 错题专练</button>
+                <button class="btn btn-light" onclick="jumpToRandom()">🎲 随机一题</button>
+            </div>
+            <div class="filter-row">
+                <select class="select-filter" id="type-filter" onchange="applyFilter()"></select>
+                <select class="select-filter" id="cat-filter" onchange="applyFilter()"></select>
+                <button class="btn btn-warning" onclick="clearWrongHistory()">清空错题</button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="question-area">
+        <div>
+            <div class="q-meta">
+                <span class="q-tag" id="q-category">题库分类</span>
+                <span id="q-type-badge" style="color:#3182ce; font-weight:bold;">单选题</span>
+            </div>
+            <div class="q-title" id="q-title-text">正在加载题目...</div>
+            <div class="options-list" id="options-box"></div>
+            <div class="result-box" id="result-box"></div>
+        </div>
+        <div class="action-bar">
+            <button class="nav-btn" onclick="prevQ()">⬅️ 上一题</button>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <span class="status-badge" id="page-indicator">1 / 1</span>
+                <button class="submit-btn" id="submit-btn" onclick="submitAnswer()" style="display:none;">提交答案</button>
+            </div>
+            <button class="nav-btn nav-btn-primary" onclick="nextQ()">下一题 ➡️</button>
+        </div>
+    </div>
+    <div class="footer-note">题库来源：重点整理-19班 · 共 <span id="total-count"></span> 题（单选/多选/判断）</div>
+</div>
+<script>
+    const allQuestions = [{"id": 1, "type": "单选题", "category": "舆情素养提升第一课", "title": "把简单的网友吐槽、个别负面评论当成严重舆情，这种“不是舆情当舆情”的误区属于", "options": ["A. 显微镜里看舆情", "B. 放大镜里看舆情", "C. 望远镜里看舆情", "D. 哈哈镜里看舆情"], "answer": "D", "fulltitle": "1. 【单选题】把简单的网友吐槽、个别负面评论当成严重舆情，这种“不是舆情当舆情”的误区属于"}, {"id": 2, "type": "多选题", "category": "舆情素养提升第一课", "title": "属于舆情复盘三大环节的有", "options": ["A. 风险研判复盘", "B. 信息核查复盘", "C. 舆情处置复盘", "D. 员工绩效考核复盘"], "answer": "ABC", "fulltitle": "2. 【多选题】属于舆情复盘三大环节的有"}, {"id": 3, "type": "多选题", "category": "舆情素养提升第一课", "title": "舆情事件结束后，需围绕哪几个环节进行复盘总结？", "options": ["A. 信息核查", "B. 风险研判", "C. 舆情处置", "D. 责任追究"], "answer": "ABC", "fulltitle": "3. 【多选题】舆情事件结束后，需围绕哪几个环节进行复盘总结？"}, {"id": 4, "type": "单选题", "category": "电力系统基础（用电检查）", "title": "新《供电营业规则》将停电或限电原因消除后恢复供电的时间由三天压缩至多少？", "options": ["A. 12小时", "B. 24小时", "C. 36小时", "D. 48小时"], "answer": "B", "fulltitle": "4. 【单选题】新《供电营业规则》将停电或限电原因消除后恢复供电的时间由三天压缩至多少？"}, {"id": 5, "type": "判断题", "category": "电力系统基础（用电检查）", "title": "用电检查人员可以越级、超区开展检查工作。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "5. 【判断题】用电检查人员可以越级、超区开展检查工作。"}, {"id": 6, "type": "单选题", "category": "电力系统基础（变电运行）", "title": "下列哪项不属于变电站的主要功能？", "options": ["A. 电压转换", "B. 电能分配", "C. 电能生产", "D. 系统保护"], "answer": "C", "fulltitle": "6. 【单选题】下列哪项不属于变电站的主要功能？"}, {"id": 7, "type": "判断题", "category": "电力系统基础（变电运行）", "title": "隔离开关（刀闸）没有灭弧装置，不能带负荷拉合。", "options": ["A. 正确", "B. 错误"], "answer": "A", "fulltitle": "7. 【判断题】隔离开关（刀闸）没有灭弧装置，不能带负荷拉合。"}, {"id": 8, "type": "单选题", "category": "电力系统基础（变电运行）", "title": "雷雨过后检查防雷装置时，在线监测仪的泄漏电流应满足？", "options": ["A. 小于1mA且大于0mA", "B. 大于1mA", "C. 等于0mA", "D. 无要求"], "answer": "A", "fulltitle": "8. 【单选题】雷雨过后检查防雷装置时，在线监测仪的泄漏电流应满足？"}, {"id": 9, "type": "多选题", "category": "电力系统基础（变电运行）", "title": "以下属于一次设备的是【继电器属于二次设备】", "options": ["A. 电容器", "B. 继电器", "C. 母线", "D. 避雷针"], "answer": "ACD", "fulltitle": "9. 【多选题】以下属于一次设备的是【继电器属于二次设备】"}, {"id": 10, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "“10kV属于高压” （是中压）", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "10. 【判断题】“10kV属于高压” （是中压）"}, {"id": 11, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "以下属于高压的等级是：", "options": ["A. 220kV", "B. 110kV", "C. 35kV", "D. 10kV"], "answer": "ABC", "fulltitle": "11. 【多选题】以下属于高压的等级是："}, {"id": 12, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "单辐射型配电网的设备利用率为？", "options": ["A. 50%", "B. 67%", "C. 75%", "D. 100%"], "answer": "D", "fulltitle": "12. 【单选题】单辐射型配电网的设备利用率为？"}, {"id": 13, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "以下哪些接线方式能满足N-1安全准则？", "options": ["A. 单环网型", "B. 双环网型", "C. 辐射型", "D. 三供一备型"], "answer": "ABD", "fulltitle": "13. 【多选题】以下哪些接线方式能满足N-1安全准则？"}, {"id": 14, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "10kv配电网一般采用以配电变压器为中心的辐射型接线。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "14. 【判断题】10kv配电网一般采用以配电变压器为中心的辐射型接线。"}, {"id": 15, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "双环网型接线在满足N-1情况下设备利用率为75%。", "options": ["A. 正确", "B. 错误"], "answer": "A", "fulltitle": "15. 【判断题】双环网型接线在满足N-1情况下设备利用率为75%。"}, {"id": 16, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "满足N-1安全准则的有：", "options": ["A. 单环网", "B. 双环网", "C. 两供一备", "D. 三供一备"], "answer": "ABCD", "fulltitle": "16. 【多选题】满足N-1安全准则的有："}, {"id": 17, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "10kV配电网中性点一般采用以下哪种接地方式？", "options": ["A. 经小电阻接地", "B. 经消弧线圈接地", "C. 直接接地", "D. 以上都不是"], "answer": "AB", "fulltitle": "17. 【多选题】10kV配电网中性点一般采用以下哪种接地方式？"}, {"id": 18, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "低压配电网中性点接地一般采用直接接地方式。", "options": ["A. 正确", "B. 错误"], "answer": "A", "fulltitle": "18. 【判断题】低压配电网中性点接地一般采用直接接地方式。"}, {"id": 19, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "超过多少公里以上的输电线路需要进行导线换位？", "options": ["A. 5km", "B. 10km", "C. 15km", "D. 20km"], "answer": "B", "fulltitle": "19. 【单选题】超过多少公里以上的输电线路需要进行导线换位？"}, {"id": 20, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "耐张杆塔正常情况下主要承受什么荷载？", "options": ["A. 不平衡张力", "B. 断线张力", "C. 垂直荷载和风荷载", "D. 一侧导线张力"], "answer": "ABC", "fulltitle": "20. 【多选题】耐张杆塔正常情况下主要承受什么荷载？"}, {"id": 21, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "导线是用于传导电流、输送电能的元件，通过什么固定在杆塔上？", "options": ["A. 绝缘子", "B. 金具", "C. 横担", "D. 拉线"], "answer": "A", "fulltitle": "21. 【单选题】导线是用于传导电流、输送电能的元件，通过什么固定在杆塔上？"}, {"id": 22, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "加强型钢芯铝绞线（LGJJ）适用于什么地区？", "options": ["A. 一般地区", "B. 重冰区和大跨越地段", "C. 城市密集区", "D. 低压线路"], "answer": "B", "fulltitle": "22. 【单选题】加强型钢芯铝绞线（LGJJ）适用于什么地区？"}, {"id": 23, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "普通拉线一般不用于以下哪种杆塔？", "options": ["A. 终端杆", "B. 转角杆", "C. 直线杆", "D. 耐张杆"], "answer": "C", "fulltitle": "23. 【单选题】普通拉线一般不用于以下哪种杆塔？"}, {"id": 24, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "中压配电网通常使用哪种绝缘电力电缆？", "options": ["A. 油纸绝缘", "B. 交联聚乙烯绝缘", "C. 聚氯乙烯绝缘", "D. 橡胶绝缘"], "answer": "B", "fulltitle": "24. 【单选题】中压配电网通常使用哪种绝缘电力电缆？"}, {"id": 25, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "电缆接头通常称为电缆终端头。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "25. 【判断题】电缆接头通常称为电缆终端头。"}, {"id": 26, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "以下属于电缆线路优点的有？", "options": ["A. 安全可靠", "B. 不占空间", "C. 造价低", "D. 不受外界影响"], "answer": "ABD", "fulltitle": "26. 【多选题】以下属于电缆线路优点的有？"}, {"id": 27, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "目前新安装的三相配电变压器不要求以下哪种型号？", "options": ["A. S11", "B. S13", "C. S7", "D. SH15"], "answer": "C", "fulltitle": "27. 【单选题】目前新安装的三相配电变压器不要求以下哪种型号？"}, {"id": 28, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "配电系统中C相母排涂什么颜色？", "options": ["A. 黑色", "B. 红色", "C. 绿色", "D. 黄色"], "answer": "B", "fulltitle": "28. 【单选题】配电系统中C相母排涂什么颜色？"}, {"id": 29, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "隔离开关的主要特点是？", "options": ["A. 有灭弧能力", "B. 无灭弧能力", "C. 能切断短路电流", "D. 能带负荷操作"], "answer": "B", "fulltitle": "29. 【单选题】隔离开关的主要特点是？"}, {"id": 30, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "隔离开关可以带负荷电流分闸", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "30. 【判断题】隔离开关可以带负荷电流分闸"}, {"id": 31, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "高压跌落式熔断器主要用于多少kV配电线路？", "options": ["A. 0.4kV", "B. 10kV", "C. 35kV", "D. 110kV"], "answer": "B", "fulltitle": "31. 【单选题】高压跌落式熔断器主要用于多少kV配电线路？"}, {"id": 32, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "以下关于负荷开关与断路器的区别说法正确的有？", "options": ["A. 负荷开关主要开断负荷电流", "B. 断路器主要开断短路电流", "C. 负荷开关能切断短路电流", "D. 断路器有完善灭弧装置"], "answer": "ABD", "fulltitle": "32. 【多选题】以下关于负荷开关与断路器的区别说法正确的有？"}, {"id": 33, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "高压开关柜“五防”不包括以下哪项？", "options": ["A. 防止误分误合断路器", "B. 防止带负荷分合隔离开关", "C. 防止过电压", "D. 防止误入带电间隔"], "answer": "C", "fulltitle": "33. 【单选题】高压开关柜“五防”不包括以下哪项？"}, {"id": 34, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "目前中压开关柜主要以微机防误闭锁装置为主。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "34. 【判断题】目前中压开关柜主要以微机防误闭锁装置为主。"}, {"id": 35, "type": "判断题", "category": "电力系统基础（配电运行）", "title": "电流互感器使用时二次侧不得短路。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "35. 【判断题】电流互感器使用时二次侧不得短路。"}, {"id": 36, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "配网自动化系统的通信通道主要有？", "options": ["A. 光纤", "B. 载波", "C. 无线", "D. 电缆"], "answer": "ABC", "fulltitle": "36. 【多选题】配网自动化系统的通信通道主要有？"}, {"id": 37, "type": "多选题", "category": "电力系统基础（配电运行）", "title": "故障指示器按实现功能可分为？", "options": ["A. 就地型", "B. 远传型", "C. 智能型", "D. 自动型"], "answer": "ABC", "fulltitle": "37. 【多选题】故障指示器按实现功能可分为？"}, {"id": 38, "type": "单选题", "category": "电力系统基础（配电运行）", "title": "配电自动化的核心是？", "options": ["A. 一次网架", "B. 配电自动化系统", "C. 通信通道", "D. 终端设备"], "answer": "B", "fulltitle": "38. 【单选题】配电自动化的核心是？"}, {"id": 39, "type": "多选题", "category": "新型电力系统概述", "title": "以下属于新兴颠覆性负荷类型的有？", "options": ["A. 电动汽车充电负荷", "B. 数据中心负荷", "C. 氢能制备负荷", "D. 工业照明负荷"], "answer": "ABC", "fulltitle": "39. 【多选题】以下属于新兴颠覆性负荷类型的有？"}, {"id": 40, "type": "单选题", "category": "新型电力系统概述", "title": "以下哪项不是新型电力系统的主要特征？", "options": ["A. 可靠", "B. 高效", "C. 集中", "D. 洁净"], "answer": "C", "fulltitle": "40. 【单选题】以下哪项不是新型电力系统的主要特征？"}, {"id": 41, "type": "单选题", "category": "新型电力系统概述", "title": "中国承诺在哪一年实现碳达峰？", "options": ["A. 2025年", "B. 2030年", "C. 2035年", "D. 2060年"], "answer": "B", "fulltitle": "41. 【单选题】中国承诺在哪一年实现碳达峰？"}, {"id": 42, "type": "判断题", "category": "新型电力系统概述", "title": "我国碳排放量全球第一，人均排放量也是全球第一。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "42. 【判断题】我国碳排放量全球第一，人均排放量也是全球第一。"}, {"id": 43, "type": "多选题", "category": "新型电力系统概述", "title": "新型电力系统发展面临的挑战包括哪些方面？", "options": ["A. 电力供应方面", "B. 系统安全方面", "C. 电力成本方面", "D. 人力资源方面"], "answer": "ABC", "fulltitle": "43. 【多选题】新型电力系统发展面临的挑战包括哪些方面？"}, {"id": 44, "type": "单选题", "category": "新型电力系统概述", "title": "风光电源的先天性“缺陷”主要指？", "options": ["A. 发电成本高", "B. 间歇性和波动性", "C. 占地面积大", "D. 设备寿命短"], "answer": "B", "fulltitle": "44. 【单选题】风光电源的先天性“缺陷”主要指？"}, {"id": 45, "type": "判断题", "category": "新型电力系统概述", "title": "风光发电因为来自大自然，所以其实际供电成本一定很低。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "45. 【判断题】风光发电因为来自大自然，所以其实际供电成本一定很低。"}, {"id": 46, "type": "单选题", "category": "新型电力系统概述", "title": "预计2060年电力占终端用能比重达到多少？", "options": ["A. 50%", "B. 60%", "C. 70%", "D. 80%"], "answer": "D", "fulltitle": "46. 【单选题】预计2060年电力占终端用能比重达到多少？"}, {"id": 47, "type": "判断题", "category": "新型电力系统概述", "title": "2060年电源侧将完全淘汰火电，全部使用清洁能源。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "47. 【判断题】2060年电源侧将完全淘汰火电，全部使用清洁能源。"}, {"id": 48, "type": "多选题", "category": "新型电力系统概述", "title": "数字电网与传统电网的区别体现在？", "options": ["A. 预测能力", "B. 实时性", "C. 自愈能力", "D. 电压等级更高"], "answer": "ABC", "fulltitle": "48. 【多选题】数字电网与传统电网的区别体现在？"}, {"id": 49, "type": "判断题", "category": "新型电力系统概述", "title": "智能电网更侧重于基础设施建设，而数字电网更侧重于功能应用。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "49. 【判断题】智能电网更侧重于基础设施建设，而数字电网更侧重于功能应用。"}, {"id": 50, "type": "多选题", "category": "新型电力系统概述", "title": "接入智能电网的新型负荷成员有哪些？（PPT原题）", "options": ["A. 电动汽车", "B. 空调负荷", "C. 智能电表", "D. 负荷调控点"], "answer": "ABCD", "fulltitle": "50. 【多选题】接入智能电网的新型负荷成员有哪些？（PPT原题）"}, {"id": 51, "type": "多选题", "category": "新型电力系统概述", "title": "新型电力系统关键技术有哪些？（PPT原题）", "options": ["A. 储能技术", "B. 电力电子技术", "C. 信息技术与通信技术", "D. 电压调控技术"], "answer": "ABC", "fulltitle": "51. 【多选题】新型电力系统关键技术有哪些？（PPT原题）"}, {"id": 52, "type": "判断题", "category": "新型电力系统概述", "title": "微电网可以完全脱离大电网独立运行，不需要与大电网配合。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "52. 【判断题】微电网可以完全脱离大电网独立运行，不需要与大电网配合。"}, {"id": 53, "type": "多选题", "category": "新型电力系统概述", "title": "分布式电源的发展趋势包括？", "options": ["A. 规模不断扩大", "B. 从用户侧光伏向分布式风电发展", "C. 向分布式生物质能发电发展", "D. 完全取代集中式电源"], "answer": "ABC", "fulltitle": "53. 【多选题】分布式电源的发展趋势包括？"}, {"id": 54, "type": "多选题", "category": "新型电力系统概述", "title": "电力市场机制建设包括？", "options": ["A. 电力现货市场", "B. 辅助服务市场", "C. 煤炭交易市场", "D. 碳交易市场"], "answer": "AB", "fulltitle": "54. 【多选题】电力市场机制建设包括？"}, {"id": 55, "type": "判断题", "category": "电力系统基础（数字化与人工智能技术）", "title": "数字化与数智化的本质区别在于是否使用了AI技术。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "55. 【判断题】数字化与数智化的本质区别在于是否使用了AI技术。"}, {"id": 56, "type": "判断题", "category": "电力系统基础（数字化与人工智能技术）", "title": "数智化转型应该先完成数字化，再推进数智化，两者是串行关系。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "56. 【判断题】数智化转型应该先完成数字化，再推进数智化，两者是串行关系。"}, {"id": 57, "type": "多选题", "category": "电力系统基础（变电检修）", "title": "关于检修类别包含关系，说法正确的有？", "options": ["A. A类包括所有B类项目", "B. B类包含C类项目", "C. C类包括所有B类项目", "D. A类是整体停电检修"], "answer": "ABD", "fulltitle": "57. 【多选题】关于检修类别包含关系，说法正确的有？"}, {"id": 58, "type": "单选题", "category": "电力系统基础（变电检修）", "title": "设备需要停电进行的整体检查、维修、更换、试验工作，属于哪类检修？", "options": ["A. A类", "B. B1类", "C. B2类", "D. C类"], "answer": "A", "fulltitle": "58. 【单选题】设备需要停电进行的整体检查、维修、更换、试验工作，属于哪类检修？"}, {"id": 59, "type": "多选题", "category": "电力系统基础（变电检修）", "title": "作业实施过程包括以下哪些环节？", "options": ["A. 办理工作票", "B. 安全交底", "C. 作业实施", "D. 归档"], "answer": "ABC", "fulltitle": "59. 【多选题】作业实施过程包括以下哪些环节？"}, {"id": 60, "type": "单选题", "category": "电力系统基础（变电检修）", "title": "高压断路器在电路发生短路故障时，能在多长时间内自动跳闸？", "options": ["A. 几秒内", "B. 几十毫秒内", "C. 几分钟内", "D. 几十秒内"], "answer": "B", "fulltitle": "60. 【单选题】高压断路器在电路发生短路故障时，能在多长时间内自动跳闸？"}, {"id": 61, "type": "判断题", "category": "电力系统基础（变电检修）", "title": "真空断路器因为体积小、灭弧能力强，是72.5kV及以上超高压输电网的核心设备。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "61. 【判断题】真空断路器因为体积小、灭弧能力强，是72.5kV及以上超高压输电网的核心设备。"}, {"id": 62, "type": "判断题", "category": "电力系统基础（变电检修）", "title": "隔离开关（刀闸）没有灭弧装置，不能带负荷拉合。", "options": ["A. 正确", "B. 错误"], "answer": "A", "fulltitle": "62. 【判断题】隔离开关（刀闸）没有灭弧装置，不能带负荷拉合。"}, {"id": 63, "type": "多选题", "category": "电力系统基础（变电检修）", "title": "隔离开关的作用包括？", "options": ["A. 隔离电源", "B. 倒换线路或母线", "C. 关合与开断小电流电路", "D. 切断短路电流"], "answer": "ABC", "fulltitle": "63. 【多选题】隔离开关的作用包括？"}, {"id": 64, "type": "判断题", "category": "电力系统基础（变电检修）", "title": "变压器原边和副边绕组之间有电的直接接触。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "64. 【判断题】变压器原边和副边绕组之间有电的直接接触。"}, {"id": 65, "type": "单选题", "category": "电力系统基础（变电检修）", "title": "电流互感器（CT）二次侧输出的标准电流通常是", "options": ["A. 100V", "B. 220V", "C. 5A或1A", "D. 10A"], "answer": "C", "fulltitle": "65. 【单选题】电流互感器（CT）二次侧输出的标准电流通常是"}, {"id": 66, "type": "单选题", "category": "电力系统基础（变电检修）", "title": "电压互感器二次侧的标准输出电压通常为？", "options": ["A. 5V", "B. 24V", "C. 100V", "D. 220V"], "answer": "C", "fulltitle": "66. 【单选题】电压互感器二次侧的标准输出电压通常为？"}, {"id": 67, "type": "单选题", "category": "供应链：招标采购法律法规及制度", "title": "下列哪项不属于招标投标基本原则？", "options": ["A. 公开", "B. 公平", "C. 效益优先", "D. 诚实信用"], "answer": "C", "fulltitle": "67. 【单选题】下列哪项不属于招标投标基本原则？"}, {"id": 68, "type": "单选题", "category": "供应链：招标采购法律法规及制度", "title": "下列哪些情形可以不进行招标？", "options": ["A. 需要采用不可替代的专利", "B. 涉及抢险救灾", "C. 项目金额低于50万", "D. 采购人依法能够自行建设"], "answer": "C", "fulltitle": "68. 【单选题】下列哪些情形可以不进行招标？"}, {"id": 69, "type": "判断题", "category": "供应链：招标采购法律法规及制度", "title": "投标截止后投标人撤销投标文件的，招标人必须退还保证金。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "69. 【判断题】投标截止后投标人撤销投标文件的，招标人必须退还保证金。"}, {"id": 70, "type": "多选题", "category": "供应链：招标采购法律法规及制度", "title": "下列哪些情形视为串通投标？", "options": ["A. 投标文件由同一单位编制", "B. 投标保证金从同一账户转出", "C. 投标文件异常一致", "D. 投标人之间协商报价"], "answer": "ABC", "fulltitle": "70. 【多选题】下列哪些情形视为串通投标？"}, {"id": 71, "type": "单选题", "category": "供应链：招标采购法律法规及制度", "title": "施工单项合同估算价在多少以上必须招标？", "options": ["A. 100万", "B. 200万", "C. 300万", "D. 400万"], "answer": "D", "fulltitle": "71. 【单选题】施工单项合同估算价在多少以上必须招标？"}, {"id": 72, "type": "单选题", "category": "电力系统基础（发电技术）", "title": "在电力系统的组成环节中，利用变压设备进行电压升降转换的环节是", "options": ["A. 输电", "B. 变电", "C. 配电", "D. 用电"], "answer": "B", "fulltitle": "72. 【单选题】在电力系统的组成环节中，利用变压设备进行电压升降转换的环节是"}, {"id": 73, "type": "判断题", "category": "电力系统基础（发电技术）", "title": "在所有常规发电方式中，燃煤火电的能量转换效率是最高的。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "73. 【判断题】在所有常规发电方式中，燃煤火电的能量转换效率是最高的。"}, {"id": 74, "type": "单选题", "category": "电力系统基础（发电技术）", "title": "葛洲坝水电站属于哪种类型？", "options": ["A. 坝后式", "B. 河床式", "C. 引水式", "D. 混合式"], "answer": "B", "fulltitle": "74. 【单选题】葛洲坝水电站属于哪种类型？"}, {"id": 75, "type": "单选题", "category": "电力系统基础（发电技术）", "title": "大型水电站的发电效率范围是？", "options": ["A. 30~48%", "B. 50~63%", "C. 70~85%", "D. 80~90%"], "answer": "D", "fulltitle": "75. 【单选题】大型水电站的发电效率范围是？"}, {"id": 76, "type": "判断题", "category": "电力系统基础（发电技术）", "title": "水轮机分为反击式和冲击式两大类。", "options": ["A. 正确", "B. 错误"], "answer": "A", "fulltitle": "76. 【判断题】水轮机分为反击式和冲击式两大类。"}, {"id": 77, "type": "判断题", "category": "电力系统基础（发电技术）", "title": "核聚变是当前核电站的主要发电方式。", "options": ["A. 正确", "B. 错误"], "answer": "B", "fulltitle": "77. 【判断题】核聚变是当前核电站的主要发电方式。"}, {"id": 78, "type": "单选题", "category": "电力系统基础（发电技术）", "title": "太阳能光伏发电的核心原理是？", "options": ["A. 电磁感应", "B. 光生伏特效应", "C. 热电效应", "D. 压电效应"], "answer": "B", "fulltitle": "78. 【单选题】太阳能光伏发电的核心原理是？"}, {"id": 79, "type": "单选题", "category": "电力系统基础（发电技术）", "title": "三种太阳能电池中转化效率最高的是？", "options": ["A. 多晶硅", "B. 非晶态硅", "C. 单晶硅", "D. 钙钛矿"], "answer": "C", "fulltitle": "79. 【单选题】三种太阳能电池中转化效率最高的是？"}, {"id": 80, "type": "多选题", "category": "电力系统基础（发电技术）", "title": "下列哪些属于物理储能技术？", "options": ["A. 抽水蓄能", "B. 压缩空气储能", "C. 锂离子电池", "D. 飞轮储能"], "answer": "ABD", "fulltitle": "80. 【多选题】下列哪些属于物理储能技术？"}];
+    const categories = ["舆情素养提升第一课", "电力系统基础（用电检查）", "电力系统基础（变电运行）", "电力系统基础（配电运行）", "新型电力系统概述", "电力系统基础（数字化与人工智能技术）", "电力系统基础（变电检修）", "供应链：招标采购法律法规及制度", "电力系统基础（发电技术）"];
+    let currentList = [...allQuestions], currentIndex = 0, currentMode = 'all', selectedLetters = new Set(), isAnswered = false;
+    const LS_KEY = 'ban19_tiku_wrong_ids_v1';
+    let wrongSet = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
+
+    function saveWrongSet() { localStorage.setItem(LS_KEY, JSON.stringify(Array.from(wrongSet))); updateWrongBadge(); }
+    function updateWrongBadge() { document.getElementById('wrong-count-badge').innerText = `错题本: ${wrongSet.size}`; document.getElementById('btn-mode-wrong').innerText = `🔴 错题专练 (${wrongSet.size})`; }
+
+    // build filters
+    (function initFilters(){
+        const tf = document.getElementById('type-filter');
+        const types = ['单选题','多选题','判断题'];
+        tf.innerHTML = `<option value="all">🔍 筛选所有题型 (${allQuestions.length})</option>` +
+            types.map(t=>`<option value="${t}">${t} (${allQuestions.filter(q=>q.type===t).length})</option>`).join('');
+        const cf = document.getElementById('cat-filter');
+        cf.innerHTML = `<option value="all">📂 筛选所有章节</option>` +
+            categories.map(c=>`<option value="${c}">${c}</option>`).join('');
+        document.getElementById('total-count').innerText = allQuestions.length;
+    })();
+
+    function switchMode(mode) {
+        currentMode = mode;
+        document.getElementById('btn-mode-all').classList.toggle('active', mode === 'all');
+        document.getElementById('btn-mode-wrong').classList.toggle('active', mode === 'wrong');
+        document.getElementById('header-mode-text').innerText = mode === 'all' ? "📚 全部题目练习" : "🔴 错题集专属强化";
+        applyFilter();
+    }
+    function applyFilter() {
+        const typeVal = document.getElementById('type-filter').value;
+        const catVal = document.getElementById('cat-filter').value;
+        let pool = currentMode === 'all' ? allQuestions : allQuestions.filter(q => wrongSet.has(q.id));
+        if (typeVal !== 'all') pool = pool.filter(q => q.type === typeVal);
+        if (catVal !== 'all') pool = pool.filter(q => q.category === catVal);
+        currentList = pool; currentIndex = 0; renderQuestion();
+    }
+    function renderQuestion() {
+        selectedLetters.clear(); isAnswered = false;
+        const resBox = document.getElementById('result-box'); resBox.style.display = 'none'; resBox.className = 'result-box';
+        if (currentList.length === 0) {
+            document.getElementById('q-title-text').innerText = currentMode === 'wrong' ? "🎉 太棒了！当前没有任何错题记录～" : "没找到符合要求的试题";
+            document.getElementById('options-box').innerHTML = ""; document.getElementById('page-indicator').innerText = "0 / 0";
+            document.getElementById('submit-btn').style.display = "none";
+            document.getElementById('q-category').innerText = ""; document.getElementById('q-type-badge').innerText = "";
+            return;
+        }
+        const q = currentList[currentIndex];
+        document.getElementById('q-category').innerText = q.category; document.getElementById('q-type-badge').innerText = q.type;
+        document.getElementById('q-title-text').innerText = q.fulltitle; document.getElementById('page-indicator').innerText = `${currentIndex + 1} / ${currentList.length}`;
+        const isMulti = q.type === '多选题' || q.type === '不定项选择题';
+        document.getElementById('submit-btn').style.display = isMulti ? 'inline-block' : 'none';
+        const optBox = document.getElementById('options-box'); optBox.innerHTML = '';
+        q.options.forEach(optStr => {
+            const letter = optStr.charAt(0);
+            const div = document.createElement('div'); div.className = 'option-item'; div.innerText = optStr;
+            div.onclick = () => onSelectOption(letter, isMulti, div, q); optBox.appendChild(div);
+        });
+    }
+    function onSelectOption(letter, isMulti, el, qData) {
+        if (isAnswered) return;
+        if (!isMulti) { selectedLetters.clear(); selectedLetters.add(letter); evaluateAnswer(qData); }
+        else {
+            if (selectedLetters.has(letter)) { selectedLetters.delete(letter); el.classList.remove('selected'); }
+            else { selectedLetters.add(letter); el.classList.add('selected'); }
+        }
+    }
+    function submitAnswer() {
+        if (isAnswered) return;
+        if (selectedLetters.size === 0) { alert("请至少选择一个选项后再提交！"); return; }
+        evaluateAnswer(currentList[currentIndex]);
+    }
+    function ansLabel(q, letters) {
+        if (q.type === '判断题') {
+            return letters.split('').map(l => l === 'A' ? 'A（正确）' : 'B（错误）').join('');
+        }
+        return letters;
+    }
+    function evaluateAnswer(q) {
+        isAnswered = true; document.getElementById('submit-btn').style.display = 'none';
+        const userAns = Array.from(selectedLetters).sort().join('');
+        const correctAns = q.answer.split('').sort().join('');
+        const isCorrect = (userAns === correctAns);
+        const optionDivs = document.getElementById('options-box').children;
+        for (let div of optionDivs) {
+            const l = div.innerText.charAt(0); div.classList.remove('selected');
+            if (correctAns.includes(l)) div.classList.add('correct');
+            else if (userAns.includes(l) && !correctAns.includes(l)) div.classList.add('wrong');
+        }
+        const resBox = document.getElementById('result-box'); resBox.style.display = 'block';
+        if (isCorrect) {
+            resBox.className = 'result-box success';
+            resBox.innerHTML = `✅ <strong>回答正确！</strong> 正确答案是：<span style="font-size:17px; text-decoration: underline;">${ansLabel(q, q.answer)}</span>`;
+            if (wrongSet.has(q.id)) { wrongSet.delete(q.id); saveWrongSet(); }
+        } else {
+            resBox.className = 'result-box error';
+            resBox.innerHTML = `❌ <strong>回答错误！</strong><br>你的答案：<b>${ansLabel(q, userAns) || '未选择'}</b> &nbsp;|&nbsp; 正确答案是：<span style="font-size:17px; color:#276749; background:#f0fff4; padding:2px 6px; border-radius:4px;">${ansLabel(q, q.answer)}</span>`;
+            wrongSet.add(q.id); saveWrongSet();
+        }
+    }
+    function prevQ() { if (currentIndex > 0) { currentIndex--; renderQuestion(); } }
+    function nextQ() { if (currentIndex < currentList.length - 1) { currentIndex++; renderQuestion(); } }
+    function jumpToRandom() { if (currentList.length === 0) return; currentIndex = Math.floor(Math.random() * currentList.length); renderQuestion(); }
+    function clearWrongHistory() {
+        if (confirm("确定要清空错题本的全部练习记忆吗？")) {
+            wrongSet.clear(); saveWrongSet();
+            if (currentMode === 'wrong') applyFilter();
+        }
+    }
+    updateWrongBadge(); applyFilter();
+</script>
+</body>
+</html>
